@@ -176,21 +176,40 @@ body.lock{overflow:hidden}
 .gp-mutuo small{font-size:calc(12*var(--u));color:#57606A}
 .gm-cta{display:flex;align-items:center;gap:calc(2*var(--u));color:var(--blue);font-size:calc(14*var(--u));font-weight:500;margin-top:calc(10*var(--u))}
 
-/* fix griglie caratteristiche / prezzo */
-.c2r{grid-template-columns:36px minmax(0,1fr);column-gap:8px;align-items:start}
-.c2r>i{width:36px;height:36px;grid-row:1/3;margin-top:-6px}
-.c2r>div:nth-child(2){height:24px}
-.c2r>div:nth-child(3){grid-column:2}
-.cy{grid-template-columns:16px auto;column-gap:4px;align-items:center}
-.cz{gap:12px;flex-wrap:nowrap}
-.c17{justify-self:end;align-self:center}
-.c15{align-items:center}
-.c83>i{width:32px;height:24px}
-.c9g>i,.c9h>i,.c9i>i,.c9p>i{width:20px;height:16px;margin-right:4px}
-.cap>i{width:24px;height:26px}
-.cy{display:flex!important;align-items:center;gap:4px;height:20px}
-.cx{overflow:visible;height:auto}
-.cz{gap:14px}
+
+/* ---- revisione 2: sticky come sito reale ---- */
+.sticky-bar{border-bottom:0!important;box-shadow:0 2px 8px rgba(0,26,77,.12)}
+.st-price{font-size:calc(20*var(--u));line-height:calc(28*var(--u));font-weight:600;color:#373C47;letter-spacing:-.2px}
+.st-feat{display:flex;align-items:center;gap:calc(6*var(--u));font-size:calc(16*var(--u));line-height:calc(24*var(--u));color:#373C47}
+.st-feat i{width:calc(10*var(--u))}
+.sb-icons{gap:calc(16*var(--u))!important}
+/* ---- loader chat come nel video ---- */
+.spark{width:24px;height:24px;flex:none}
+.spark path{transform-box:fill-box;transform-origin:center}
+.st-a{animation:stA 1.6s ease-in-out infinite}
+.st-b{animation:stB 1.6s ease-in-out infinite}
+@keyframes stA{0%,12%{transform:scale(1)}30%,95%{transform:scale(.34)}100%{transform:scale(1)}}
+@keyframes stB{0%,40%{transform:scale(.34)}58%,72%{transform:scale(1)}90%,100%{transform:scale(.34)}}
+.spark .s-big,.spark .s-small{display:none}
+.loader{gap:8px!important}
+.loader-text{background-image:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 50%,rgba(255,255,255,0) 100%),linear-gradient(90deg,#E5137B 0%,#8B2BE2 45%,#1E6FF0 100%)!important;background-size:45% 100%,100% 100%!important;background-repeat:no-repeat!important;background-position:-60% 0,0 0;-webkit-background-clip:text!important;background-clip:text!important;color:transparent;animation:shine 1.6s linear infinite!important}
+@keyframes shine{from{background-position:-60% 0,0 0}to{background-position:160% 0,0 0}}
+/* ---- input chat ---- */
+.input-box{height:58px!important;border:1px solid var(--blue)!important;border-radius:24px!important;padding:8px 8px 8px 16px!important}
+.input-box span{color:#9FA5B6!important}
+/* ---- card promo galleria (Figma) ---- */
+.promo-card{left:107px!important;top:63px!important;width:162px!important;padding:8px!important;gap:8px;border-radius:10px!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:1px solid #fff!important}
+.promo-card .pc-top{gap:4px;font-size:14px;line-height:24px;font-weight:400}
+.promo-card .pc-top .ic24{width:20px;height:20px}
+.promo-card strong{font-size:24px!important;line-height:34px!important;font-weight:600}
+.promo-card small{font-size:14px!important;line-height:24px!important;font-weight:500;margin:0!important}
+.pc-btn{height:32px;border-radius:5px!important;font-size:14px!important;font-weight:500!important}
+/* ---- tessera mutuo galleria (Figma) ---- */
+.gp-mutuo{padding:0 calc(12*var(--u))!important}
+.gm-top{font-size:calc(14*var(--u))!important;font-weight:500}
+.gp-mutuo strong{font-size:calc(20*var(--u))!important;line-height:calc(32*var(--u))!important;font-weight:500!important;color:#24292F;margin-top:calc(4*var(--u))!important}
+.gp-mutuo small{font-size:calc(12*var(--u))!important;line-height:calc(20*var(--u))!important;color:#57606A}
+.gm-cta{margin-top:calc(8*var(--u))!important}
 
 /* ---- Corpo pagina (da Figma) ---- */
 .c0{width:48px;flex:none;height:48px;}
@@ -583,3 +602,53 @@ body.lock{overflow:hidden}
 .car{align-self:stretch;height:152px;flex-shrink:0;display:flex;flex-direction:column;padding:16px 0px 16px 0px;align-items:flex-start;background:#3390cd;overflow:hidden;}
 .cas{width:375px;height:192px;position:absolute;left:0px;top:6897px;display:flex;flex-direction:column;padding:0px 0px 40px 0px;align-items:flex-start;background:#0074c1;}
 .cat{width:375px;height:7089px;display:flex;flex-direction:column;padding:0px 16px 0px 16px;align-items:flex-start;background:#ffffff;}
+
+/* fix griglie caratteristiche / prezzo */
+.c2r{grid-template-columns:36px minmax(0,1fr);column-gap:8px;align-items:start}
+.c2r>i{width:36px;height:36px;grid-row:1/3;margin-top:-6px}
+.c2r>div:nth-child(2){height:24px}
+.c2r>div:nth-child(3){grid-column:2}
+.cy{grid-template-columns:16px auto;column-gap:4px;align-items:center}
+.cz{gap:12px;flex-wrap:nowrap}
+.c17{justify-self:end;align-self:center}
+.c15{align-items:center}
+.c83>i{width:32px;height:24px}
+.c9g>i,.c9h>i,.c9i>i,.c9p>i{width:20px;height:16px;margin-right:4px}
+.cap>i{width:24px;height:26px}
+.cy{display:flex!important;align-items:center;gap:4px;height:20px}
+.cx{overflow:visible;height:auto}
+.cz{gap:14px}
+
+/* ---- revisione 2 ---- */
+.cat>.c10:first-child{padding-top:0}
+.g-overlay{top:0}
+/* tile media: svg 56 con ombra, area visibile 48 */
+.cf{align-items:center}
+.cf>.c0{width:56px;height:56px;margin:-4px}
+.cf>.c0+.c0{margin-left:-4px}
+.cf{gap:8px}
+.ce{height:48px;box-sizing:border-box}
+.ce .cc{width:24px;height:24px}
+.ce .cc>i{display:none}
+.ce .cc .calc-ico{display:block;width:24px;height:24px}
+/* righe caratteristiche e prezzo */
+.c2r{grid-template-columns:36px minmax(0,1fr)!important;column-gap:12px!important;align-items:start}
+.c2r>i{width:36px;height:36px;grid-row:1/3;margin-top:-4px}
+.c2r>div:nth-child(2){height:24px}
+.c2r>div:nth-child(3){grid-column:2}
+.c2r .c12{position:static}
+/* linea verticale offerte */
+.c50,.c67,.c6a{position:relative}
+.c50::before,.c67::before,.c6a::before{content:"";position:absolute;left:16px;width:1px;background:#D5D7DD;z-index:0}
+.c50::before{top:50%;bottom:0}
+.c67::before{top:0;bottom:0}
+.c6a::before{top:0;bottom:calc(50% - 8px)}
+.c50>i,.c6a>i,.c67>.c52{position:relative;z-index:1}
+/* pulsante espandi (planimetria / mappa) */
+.c6i{width:82px!important;height:88px!important;left:261px!important;top:0!important;z-index:2}
+/* separatore opzioni aggiuntive / annunci simili */
+.c96{height:auto!important;padding-bottom:24px!important}
+.c96::after{content:"";position:absolute;left:-16px;bottom:0;width:375px;height:1px;background:#d5d7dd}
+.c9z{padding-top:16px!important}
+.c2r{align-content:start!important;grid-auto-rows:min-content}
+.promo-card small{white-space:nowrap;letter-spacing:-.15px}
