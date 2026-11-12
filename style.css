@@ -210,6 +210,7 @@ body.lock{overflow:hidden}
 .gp-mutuo strong{font-size:calc(20*var(--u))!important;line-height:calc(32*var(--u))!important;font-weight:500!important;color:#24292F;margin-top:calc(4*var(--u))!important}
 .gp-mutuo small{font-size:calc(12*var(--u))!important;line-height:calc(20*var(--u))!important;color:#57606A}
 .gm-cta{margin-top:calc(8*var(--u))!important}
+.gp-head{border-bottom:1px solid #E1E5EA}
 
 /* ---- Corpo pagina (da Figma) ---- */
 .c0{width:48px;flex:none;height:48px;}
@@ -272,7 +273,7 @@ body.lock{overflow:hidden}
 .c1l{width:343px;flex-shrink:0;display:flex;gap:16px;padding:0px 0px 0px 8px;align-items:flex-start;}
 .c1m{width:343px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;background:#f5f6f7;border-radius:16px;}
 .c1n{width:106px;height:48px;position:absolute;left:0px;top:0px;overflow:hidden;}
-.c1o{width:106px;height:48px;position:absolute;left:0px;top:1px;background:url(assets/plenitude.jpg) center/cover no-repeat;border-radius:8px;}
+.c1o{width:106px;height:48px;position:absolute;left:0px;top:1px;background:url(assets/plenitude.png) center/cover no-repeat;border-radius:8px;}
 .c1p{display:flex;padding:0px 16px 0px 0px;align-items:flex-start;}
 .c1q{flex-shrink:0;font-size:14px;font-weight:600;color:#373c47;line-height:21px;white-space:pre;}
 .c1r{width:189px;flex-shrink:0;font-size:12px;font-weight:400;color:#60687a;line-height:18px;white-space:pre-wrap;}
@@ -387,7 +388,7 @@ body.lock{overflow:hidden}
 .c4s{width:253px;height:79px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-start;overflow:hidden;}
 .c4t{flex:1 1 0;flex-shrink:0;display:flex;flex-direction:column;padding:0px 0px 8px 0px;align-items:flex-start;}
 .c4u{width:106px;height:47px;position:absolute;left:0px;top:0px;overflow:hidden;}
-.c4v{width:124px;height:50px;position:absolute;left:-8px;top:0px;background:url(assets/plenitude.jpg) center/cover no-repeat;}
+.c4v{width:124px;height:50px;position:absolute;left:-8px;top:0px;background:url(assets/plenitude.png) center/cover no-repeat;}
 .c4w{width:106px;height:47px;flex-shrink:0;overflow:hidden;}
 .c4x{width:16px;height:16px;position:absolute;left:-15px;top:76px;}
 .c4y{width:14px;height:14px;position:absolute;left:-13px;top:77px;}
@@ -652,3 +653,8 @@ body.lock{overflow:hidden}
 .c9z{padding-top:16px!important}
 .c2r{align-content:start!important;grid-auto-rows:min-content}
 .promo-card small{white-space:nowrap;letter-spacing:-.15px}
+/* ---- revisione 3 ---- */
+.bank-isp{height:12px;width:auto;display:block}
+.bank-bnl{height:14px;width:auto;display:block}
+.c1o{background-color:transparent}
+.c1d{isolation:auto}
