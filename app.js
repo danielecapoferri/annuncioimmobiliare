@@ -52,10 +52,36 @@
   document.getElementById('gpBack').addEventListener('click',closeGallery);
 
   /* ---------- Scroll al calcolatore ---------- */
-  document.querySelectorAll('[data-scroll-calc]').forEach(function(b){b.addEventListener('click',function(){
-    var y=document.getElementById('n750_3511').getBoundingClientRect().top+window.scrollY-56*U();
-    window.scrollTo({top:y,behavior:'smooth'});
-  });});
+  /* Scroll al calcolatore: un unico movimento fluido, animato fotogramma per fotogramma.
+     Il punto di arrivo viene ricalcolato a ogni frame, quindi resta corretto anche se
+     la barra del browser cambia altezza durante lo scroll (Safari, Brave, Chrome, Firefox). */
+  function stickyH(){ var b=document.getElementById('stickyBar'); return b? b.getBoundingClientRect().height : 56*U(); }
+  function curY(){ return window.pageYOffset||document.documentElement.scrollTop||0; }
+  function targetY(){ var el=document.getElementById('n750_3511'); return el.getBoundingClientRect().top+curY()-stickyH()-4; }
+  var anim=null;
+  function stopAnim(){ if(anim){ cancelAnimationFrame(anim); anim=null; } }
+  /* Durante lo scroll: schermo non cliccabile e scroll non interrompibile */
+  var shield=document.createElement('div'); shield.id='scrollShield'; document.body.appendChild(shield);
+  function block(e){ if(anim){ e.preventDefault(); e.stopPropagation(); } }
+  ['touchmove','wheel','touchstart','click','mousedown'].forEach(function(ev){ window.addEventListener(ev,block,{passive:false,capture:true}); });
+  window.addEventListener('keydown',function(e){ if(anim && [32,33,34,35,36,37,38,39,40].indexOf(e.keyCode)>-1) e.preventDefault(); },{capture:true});
+  function lockOn(){ shield.style.display='block'; document.documentElement.classList.add('auto-scrolling'); }
+  function lockOff(){ shield.style.display='none'; document.documentElement.classList.remove('auto-scrolling'); }
+  function scrollToCalc(){
+    stopAnim(); lockOn();
+    var startY=curY(), t0=null, dist=Math.abs(targetY()-startY);
+    var dur=Math.min(1100,Math.max(500,dist*0.18));
+    var ease=function(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; };
+    function step(ts){
+      if(t0===null) t0=ts;
+      var p=Math.min(1,(ts-t0)/dur);
+      var y=startY+(targetY()-startY)*ease(p);
+      window.scrollTo(0,Math.round(y));
+      if(p<1){ anim=requestAnimationFrame(step); } else { window.scrollTo(0,Math.round(targetY())); anim=null; setTimeout(lockOff,60); }
+    }
+    anim=requestAnimationFrame(step);
+  }
+  document.querySelectorAll('[data-scroll-calc]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();scrollToCalc();});});
 
   /* ---------- Assistente AI ---------- */
   var chat=document.getElementById('chat'), loader=document.getElementById('loader'), answer=document.getElementById('answer'), card=document.getElementById('mutuiCard'), body=document.getElementById('chatBody');

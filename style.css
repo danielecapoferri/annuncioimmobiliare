@@ -659,3 +659,7 @@ body.lock{overflow:hidden}
 .c1o{background-color:transparent}
 .c1d{isolation:auto}
 .c1o{left:0!important;top:0!important;width:106px!important;height:48px!important;background:url(assets/plenitude.png) center/contain no-repeat!important;border-radius:0!important}
+html{scroll-behavior:auto}
+#n750_3511{scroll-margin-top:64px}
+#scrollShield{position:fixed;inset:0;z-index:9999;display:none;background:transparent;touch-action:none;-webkit-user-select:none;user-select:none}
+html.auto-scrolling,html.auto-scrolling body{touch-action:none;overscroll-behavior:none}
