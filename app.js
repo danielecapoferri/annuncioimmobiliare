@@ -3,8 +3,10 @@
   var VW=function(){return Math.min(document.documentElement.clientWidth||window.innerWidth,768);};
   var U=function(){return VW()/375;};
   var pageEl=document.getElementById('page');
-  function setZoom(){ pageEl.style.setProperty('--z', VW()/375); }
-  setZoom(); window.addEventListener('resize',setZoom);
+  var wrapEl=document.getElementById('pageWrap');
+  function Z(){ return VW()/375; }
+  function setZoom(){ var z=Z(); pageEl.style.transform='scale('+z+')'; wrapEl.style.height=(pageEl.offsetHeight*z)+'px'; }
+  setZoom(); window.addEventListener('resize',setZoom); window.addEventListener('load',setZoom); window.addEventListener('orientationchange',function(){setTimeout(setZoom,200);});
 
   /* Link esterni: nuova scheda */
   document.querySelectorAll('[data-link]').forEach(function(a){a.href=LINK;a.target='_blank';a.rel='noopener';});
@@ -57,7 +59,8 @@
      la barra del browser cambia altezza durante lo scroll (Safari, Brave, Chrome, Firefox). */
   function stickyH(){ var b=document.getElementById('stickyBar'); return b? b.getBoundingClientRect().height : 56*U(); }
   function curY(){ return window.pageYOffset||document.documentElement.scrollTop||0; }
-  function targetY(){ var el=document.getElementById('n750_3511'); return el.getBoundingClientRect().top+curY()-stickyH()-4; }
+  function offsetIn(el,stop){ var y=0; while(el && el!==stop){ y+=el.offsetTop; el=el.offsetParent; } return y; }
+  function targetY(){ var el=document.getElementById('n750_3511'); var docTop=wrapEl.getBoundingClientRect().top+curY(); return docTop+offsetIn(el,pageEl)*Z()-stickyH()-4; }
   var anim=null;
   function stopAnim(){ if(anim){ cancelAnimationFrame(anim); anim=null; } }
   /* Durante lo scroll: schermo non cliccabile e scroll non interrompibile */

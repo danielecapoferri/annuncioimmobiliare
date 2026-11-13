@@ -138,7 +138,7 @@ body.lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
 /* ---- Pagina in codice ---- */
-.page{--u:1px;width:375px;zoom:var(--z,1);font-family:Inter,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.page{--u:1px;width:375px;transform-origin:0 0;font-family:Inter,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 :where(.page) div,:where(.page) a,:where(.page) b,:where(.page) i,:where(.page) p{box-sizing:border-box;position:relative}
 :where(.page) p{margin:0}
 :where(.page) i{display:block;font-style:normal;line-height:0}
@@ -211,6 +211,8 @@ body.lock{overflow:hidden}
 .gp-mutuo small{font-size:calc(12*var(--u))!important;line-height:calc(20*var(--u))!important;color:#57606A}
 .gm-cta{margin-top:calc(8*var(--u))!important}
 .gp-head{border-bottom:1px solid #E1E5EA}
+
+.page-wrap{position:relative;width:100%;overflow:hidden}
 
 /* ---- Corpo pagina (da Figma) ---- */
 .c0{width:48px;flex:none;height:48px;}
