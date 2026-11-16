@@ -11,7 +11,7 @@
   /* Link esterni: nuova scheda */
   var BRIDGE=(function(){ var s=document.currentScript&&document.currentScript.src; try{ return new URL('vai.html', s||location.href).href; }catch(e){ return 'vai.html'; } })();
   var OUT=BRIDGE+'?u='+encodeURIComponent(LINK);
-  document.querySelectorAll('[data-link]').forEach(function(a){a.href=OUT;a.target='_blank';a.rel='noopener';});
+  document.querySelectorAll('[data-link]').forEach(function(a){ if(a.tagName==='A'){a.href=OUT;a.target='_blank';a.rel='noopener';} else { a.addEventListener('click',function(){ window.open(OUT,'_blank','noopener'); }); } });
 
   /* Desktop: QR */
   var url=location.href.split('#')[0];
