@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Immobiliare.it Mutui</title>
+<style>html,body{margin:0;height:100%;background:#fff;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif}</style>
+</head><body>
+<script>
+/* Pagina ponte: apre la destinazione nel browser corrente invece che nell'app.
+   La navigazione parte dallo stesso dominio del prototipo e senza tocco dell'utente,
+   quindi iOS/Android non la intercettano come Universal Link / App Link. */
+(function(){
+  var u=new URLSearchParams(location.search).get('u');
+  if(!u || !/^https:\/\/(www\.)?immobiliare\.it\//.test(u)){ document.body.textContent=''; return; }
+  setTimeout(function(){ location.replace(u); }, 60);
+})();
+</script>
+</body></html>

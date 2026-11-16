@@ -9,7 +9,9 @@
   setZoom(); window.addEventListener('resize',setZoom); window.addEventListener('load',setZoom); window.addEventListener('orientationchange',function(){setTimeout(setZoom,200);});
 
   /* Link esterni: nuova scheda */
-  document.querySelectorAll('[data-link]').forEach(function(a){a.href=LINK;a.target='_blank';a.rel='noopener';});
+  var BRIDGE=(function(){ var s=document.currentScript&&document.currentScript.src; try{ return new URL('vai.html', s||location.href).href; }catch(e){ return 'vai.html'; } })();
+  var OUT=BRIDGE+'?u='+encodeURIComponent(LINK);
+  document.querySelectorAll('[data-link]').forEach(function(a){a.href=OUT;a.target='_blank';a.rel='noopener';});
 
   /* Desktop: QR */
   var url=location.href.split('#')[0];
